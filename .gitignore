@@ -1,0 +1,10 @@
+.DS_Store
+.env
+.idea/
+.vscode/
+**/target/
+**/node_modules/
+**/dist/
+**/*.tsbuildinfo
+backend/data/
+*.log

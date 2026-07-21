@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cart - Cognitive Commerce</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary": "#6b38d4",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#27313f",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-variant": "#d9e3f6",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "on-background": "#121c2a",
+                        "on-surface": "#121c2a",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#d9e3f6",
+                        "on-secondary-container": "#fffbff",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-primary-fixed-variant": "#004395",
+                        "surface-dim": "#d0dbed",
+                        "secondary-container": "#8455ef",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "primary-container": "#2170e4",
+                        "background": "#f8f9ff",
+                        "outline": "#727785",
+                        "inverse-primary": "#adc6ff",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "on-secondary-fixed": "#23005c",
+                        "surface": "#f8f9ff",
+                        "secondary-fixed": "#e9ddff",
+                        "on-tertiary-container": "#f5fff6",
+                        "on-surface-variant": "#424754",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#002113",
+                        "on-primary-fixed": "#001a42",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f8f9ff",
+                        "error": "#ba1a1a",
+                        "surface-container": "#e6eeff",
+                        "primary-fixed": "#d8e2ff",
+                        "outline-variant": "#c2c6d6",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#00855b",
+                        "surface-container-low": "#eff4ff",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#005ac2",
+                        "tertiary": "#006947",
+                        "surface-container-high": "#dee9fc",
+                        "primary-fixed-dim": "#adc6ff",
+                        "primary": "#0058be",
+                        "on-primary-container": "#fefcff"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "gutter": "24px",
+                        "stack-lg": "32px",
+                        "container-max": "1280px",
+                        "unit": "4px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "48px"
+                    },
+                    fontFamily: {
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    fontSize: {
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "600" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ai-glow {
+            box-shadow: 0 0 20px rgba(107, 56, 212, 0.15);
+        }
+        .ai-gradient-border {
+            position: relative;
+            background: linear-gradient(var(--tw-colors-surface-container-lowest), var(--tw-colors-surface-container-lowest)) padding-box,
+                        linear-gradient(to right, var(--tw-colors-primary), var(--tw-colors-secondary)) border-box;
+            border: 1px solid transparent;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar from JSON -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md dark:bg-background/80 shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-6">
+<a class="font-display-lg text-display-lg font-bold text-on-surface dark:text-on-surface-variant" href="#">
+                    Cognitive Commerce
+                </a>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md active:scale-95 duration-200" href="#">Shop</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md hover:bg-surface-container-low rounded-lg p-2 active:scale-95 duration-200" href="#">Deals</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md hover:bg-surface-container-low rounded-lg p-2 active:scale-95 duration-200" href="#">New Arrivals</a>
+</nav>
+<div class="flex items-center gap-4 text-primary dark:text-primary-fixed-dim">
+<button aria-label="shopping_cart" class="p-2 hover:bg-surface-container-low rounded-lg transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+<button aria-label="account_circle" class="p-2 hover:bg-surface-container-low rounded-lg transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-[120px] pb-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<h1 class="font-headline-lg text-headline-lg md:font-display-lg md:text-display-lg mb-stack-lg">Your Cart</h1>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Cart Items & Upsell -->
+<div class="lg:col-span-8 flex flex-col gap-stack-lg">
+<!-- Cart Items List -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] p-6 flex flex-col gap-6">
+<!-- Item 1 -->
+<div class="flex flex-col sm:flex-row gap-6 pb-6 border-b border-outline-variant/30">
+<div class="w-full sm:w-32 h-32 rounded-lg overflow-hidden shrink-0 bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="A sleek, modern silver laptop sitting on a clean, light-colored desk environment. The lighting is soft and natural, emphasizing the premium metallic finish and minimalist design of the device." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvnRDTKJSAUl1GjCAygGbMHADJiJgcanVu6FHTniDU4BIgmmv2fLNj4sjHwm8ua9sYazrpvpwzU-ToUO_F9VCQcw5HxhE2mEoZlDrb7DcGjzuon3YjOyHazq34hE6Y0UmFoUFFrw_ZxtexmP-m4av5AbqkwJt3AJyvgTlGkeNjs1kfhpAmb1OUgkQGh3lArdLz4O9x6MA8NDmMPk1E0YRjJgA2nf5tvABDAzs-MReS6EAN8ceJ6xJB"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Quantum Pro Laptop 14"</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">M2 Chip, 16GB RAM, 512GB SSD</p>
+</div>
+<span class="font-headline-md text-headline-md">$1,299.00</span>
+</div>
+<div class="flex justify-between items-center mt-4">
+<div class="flex items-center border border-outline-variant rounded-lg">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]">remove</span></button>
+<span class="font-label-md text-label-md px-4 py-1">1</span>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]">add</span></button>
+</div>
+<button class="text-error font-label-md text-label-md hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">delete</span> Remove
+                                </button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex flex-col sm:flex-row gap-6">
+<div class="w-full sm:w-32 h-32 rounded-lg overflow-hidden shrink-0 bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="A pair of premium noise-canceling over-ear headphones in matte black, resting on a pristine white surface. Soft studio lighting highlights the textured ear cups and sleek headband design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZfGy7EAFWBHLaTMqn1R303-BTfWZ4NGqer1gcoH5zhcvQ7Uhrbh3Mozu6TBcNCeXaARb4qeHzSjWH7bF9kY8Ywmxh2RYzkkaVfGfJDBLRjFvPuURpKwxb-V9sjVtlMjSKosHF31FsLvLZvdwNcYbCdW3HmLXd6sZ89AP8nlxHvLcghNDcrxf1eE3418i5jTZm2NHPKNlj5Ke2gAYsMQT_tZulFSgf7hzbWG-hXiZM7H7f6sP1cH4u"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Aura Noise-Canceling Headphones</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Matte Black, Wireless</p>
+</div>
+<span class="font-headline-md text-headline-md">$249.00</span>
+</div>
+<div class="flex justify-between items-center mt-4">
+<div class="flex items-center border border-outline-variant rounded-lg">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]">remove</span></button>
+<span class="font-label-md text-label-md px-4 py-1">1</span>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]">add</span></button>
+</div>
+<button class="text-error font-label-md text-label-md hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">delete</span> Remove
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Smart Upsell -->
+<div class="ai-gradient-border ai-glow rounded-xl p-6 mt-4">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Smart Add-ons for Your Cart</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Based on your Quantum Pro Laptop, we recommend these highly-rated accessories.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Upsell Item 1 -->
+<div class="bg-surface rounded-lg p-4 flex gap-4 items-center border border-outline-variant/20 hover:shadow-md transition-shadow">
+<div class="w-16 h-16 rounded bg-surface-container-lowest shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A minimalist, slim laptop sleeve made of dark gray felt and premium brown leather accents, photographed top-down on a light minimalist background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfoAVlD1NmWg_ewStdW6XTJ5Ly-GGyU420obwlLgWrWny1zf1fptdKAXgRGzOOV3MvIPX19JUhNzCVgZl2K8rvNsATvBmMWYmtQbMz0C8fe-uRKQbVI7OQnHdd9vJ3DDKAockDqyS4sZjTdiXr2wgdtK0oURZKtDUjv8G58I-xG0N0JSP0BN0tme7z_v0WTJjsz-caIIXmeh_vzl5lEe0-V2cFID8PW2OLNiNi23WkYg4RVdlyKmw7"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-label-md text-label-md text-on-surface line-clamp-1">Premium Leather Sleeve 14"</h4>
+<span class="font-body-md text-body-md text-primary font-medium">$45.00</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-secondary-container transition-colors shrink-0">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<!-- Upsell Item 2 -->
+<div class="bg-surface rounded-lg p-4 flex gap-4 items-center border border-outline-variant/20 hover:shadow-md transition-shadow">
+<div class="w-16 h-16 rounded bg-surface-container-lowest shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A compact, multi-port USB-C hub adapter in space gray aluminum, shown with subtle soft lighting against a stark white backdrop to emphasize its technical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMzHEZRZ2CTjlr75ytTRVyZDiB5kgwTHYJ689WAJzR0Vhvc3PRn90r71kHziWtUQSHcRWzWpNALItZhjLEpRIjjYg3JXXaMKh-IHcRLQKdVzNas6mNszIINcS03aKhkz26f-dQBRdi1dsAxS4U4nW-O8SOoHJnlVW5G9OW9WuKL8DE9sv5n276sLuyvi4ujTLXwRuGIk4cHcJvsvsRw4jn2GCluqYMf8yo0ZHj9KzPOS3dzB2TGp2l"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-label-md text-label-md text-on-surface line-clamp-1">Pro Multi-Port USB-C Hub</h4>
+<span class="font-body-md text-body-md text-primary font-medium">$60.00</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-secondary-container transition-colors shrink-0">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="lg:col-span-4">
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] p-6 lg:sticky lg:top-[100px]">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">Order Summary</h2>
+<div class="flex flex-col gap-4 font-body-md text-body-md text-on-surface-variant mb-6 border-b border-outline-variant/30 pb-6">
+<div class="flex justify-between">
+<span>Subtotal (2 items)</span>
+<span class="text-on-surface font-medium">$1,548.00</span>
+</div>
+<div class="flex justify-between">
+<span>Estimated Shipping</span>
+<span class="text-primary font-medium">Free</span>
+</div>
+<div class="flex justify-between">
+<span>Estimated Tax</span>
+<span class="text-on-surface font-medium">$123.84</span>
+</div>
+</div>
+<div class="flex justify-between items-center mb-8">
+<span class="font-headline-lg text-headline-lg text-on-surface">Total</span>
+<span class="font-headline-lg text-headline-lg text-on-surface">$1,671.84</span>
+</div>
+<button class="w-full bg-[#1F2937] hover:bg-black text-white font-label-md text-label-md py-4 rounded-lg flex justify-center items-center gap-2 transition-colors">
+                        Proceed to Checkout <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<p class="font-label-sm text-label-sm text-center text-outline mt-4">
+                        Secure checkout powered by Cognitive Commerce
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer from JSON -->
+<footer class="w-full mt-stack-lg bg-surface-container-highest dark:bg-surface-dim border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-stack-md max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md text-primary mb-4 md:mb-0">
+                Cognitive Commerce
+            </div>
+<nav class="flex flex-wrap justify-center gap-6 mb-4 md:mb-0">
+<a class="text-on-surface-variant hover:text-on-surface font-body-md text-body-md hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-on-surface font-body-md text-body-md hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-on-surface font-body-md text-body-md hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Help Center</a>
+<a class="text-on-surface-variant hover:text-on-surface font-body-md text-body-md hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Contact Us</a>
+</nav>
+<div class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface text-center md:text-right">
+                © 2024 Cognitive Commerce. Powered by Precision Intelligence.
+            </div>
+</div>
+</footer>
+</body></html>

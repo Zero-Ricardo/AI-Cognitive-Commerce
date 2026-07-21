@@ -1,0 +1,74 @@
+spring:
+  application:
+    name: commerce-api
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/commerce_db?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false}
+    username: ${DB_USERNAME:commerce_app}
+    password: ${DB_PASSWORD:commerce_password}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      connect-timeout: 500ms
+      timeout: 800ms
+      repositories:
+        enabled: false
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 8MB
+
+server:
+  port: ${SERVER_PORT:8080}
+  forward-headers-strategy: framework
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+app:
+  auth:
+    access-token-minutes: ${ACCESS_TOKEN_MINUTES:30}
+    refresh-token-days: ${REFRESH_TOKEN_DAYS:14}
+    secure-cookie: ${SECURE_COOKIE:false}
+  cors:
+    allowed-origins: ${ALLOWED_ORIGINS:http://localhost:5173,http://127.0.0.1:5173,http://localhost:5174,http://127.0.0.1:5174}
+  storage:
+    path: ${STORAGE_PATH:./data/uploads}
+  search:
+    elasticsearch-enabled: ${SEARCH_ES_ENABLED:false}
+    elasticsearch-url: ${ELASTICSEARCH_URL:http://localhost:9200}
+    index-name: ${ELASTICSEARCH_INDEX_NAME:products_search_v2}
+    mysql-fallback-enabled: ${SEARCH_MYSQL_FALLBACK_ENABLED:true}
+  redis:
+    hot-products-enabled: ${REDIS_HOT_PRODUCTS_ENABLED:false}
+  browsing-history:
+    enabled: ${BROWSING_HISTORY_ENABLED:true}
+    dedupe-minutes: ${BROWSING_HISTORY_DEDUPE_MINUTES:30}
+    retention-days: ${BROWSING_HISTORY_RETENTION_DAYS:180}
+  hot-products:
+    refresh-ms: ${HOT_PRODUCTS_REFRESH_MS:300000}
+    sales-weight: ${HOT_PRODUCTS_SALES_WEIGHT:0.50}
+    view-weight: ${HOT_PRODUCTS_VIEW_WEIGHT:0.30}
+    favorite-weight: ${HOT_PRODUCTS_FAVORITE_WEIGHT:0.20}
+    formula-version: hot-v2-log-1
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} %-5level requestId=%X{requestId:-} %logger{36} - %msg%n"

@@ -1,0 +1,28 @@
+{
+  "name": "mall-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5173",
+    "build": "tsc -b && vite build",
+    "typecheck": "tsc -b --pretty false"
+  },
+  "dependencies": {
+    "@ai-commerce/api-client": "workspace:*",
+    "@ai-commerce/design-tokens": "workspace:*",
+    "@ant-design/icons": "^6.1.0",
+    "@tanstack/react-query": "^5.90.21",
+    "antd": "^6.5.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-router-dom": "^7.13.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.1.5"
+  }
+}

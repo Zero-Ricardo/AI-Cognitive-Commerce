@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Search Results - Cognitive Commerce</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#adc6ff",
+                        "surface": "#f8f9ff",
+                        "tertiary-container": "#00855b",
+                        "on-secondary-container": "#fffbff",
+                        "on-secondary-fixed": "#23005c",
+                        "on-tertiary-container": "#f5fff6",
+                        "tertiary-fixed": "#6ffbbe",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-primary-container": "#fefcff",
+                        "tertiary": "#006947",
+                        "on-background": "#121c2a",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d0dbed",
+                        "secondary-fixed": "#e9ddff",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#424754",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#002113",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#d9e3f6",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "secondary-container": "#8455ef",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#eff4ff",
+                        "outline-variant": "#c2c6d6",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container-high": "#dee9fc",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f8f9ff",
+                        "primary": "#0058be",
+                        "inverse-surface": "#27313f",
+                        "primary-fixed": "#d8e2ff",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "inverse-primary": "#adc6ff",
+                        "surface-tint": "#005ac2",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "secondary": "#6b38d4",
+                        "outline": "#727785",
+                        "surface-container": "#e6eeff",
+                        "surface-variant": "#d9e3f6",
+                        "on-primary-fixed": "#001a42",
+                        "on-surface": "#121c2a",
+                        "primary-container": "#2170e4",
+                        "on-primary-fixed-variant": "#004395"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "unit": "4px",
+                        "stack-lg": "32px",
+                        "margin-desktop": "48px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .ai-gradient-text {
+            background: linear-gradient(135deg, #0058be 0%, #6b38d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .ai-gradient-bg {
+            background: linear-gradient(135deg, #0058be 0%, #6b38d4 100%);
+        }
+        .ai-glow {
+            box-shadow: 0 0 15px rgba(107, 56, 212, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm">
+<nav class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<a class="font-display-lg text-display-lg font-bold text-on-surface" href="#">
+                    Cognitive Commerce
+                </a>
+<div class="hidden md:flex items-center gap-6">
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 active:scale-95 duration-200" href="#">Shop</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200" href="#">Deals</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200" href="#">New Arrivals</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-primary hover:bg-surface-container-low rounded-lg transition-all p-2 active:scale-95 duration-200">
+<span class="material-symbols-outlined text-[24px]">shopping_cart</span>
+</button>
+<button class="text-primary hover:bg-surface-container-low rounded-lg transition-all p-2 active:scale-95 duration-200">
+<span class="material-symbols-outlined text-[24px]">account_circle</span>
+</button>
+</div>
+</nav>
+<div class="border-t border-outline-variant/30 bg-surface-container-lowest/80 backdrop-blur-md py-3">
+<div class="max-w-container-max mx-auto px-margin-desktop flex items-center gap-4">
+<div class="relative flex-grow max-w-2xl group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2 border border-outline-variant rounded-lg bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-shadow group-focus-within:ai-glow" placeholder="Search products..." type="text" value="Bluetooth Headphones"/>
+</div>
+<button class="ai-gradient-bg text-on-primary font-label-md text-label-md px-4 py-2 rounded-lg ai-glow hover:opacity-90 transition-opacity flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+                    Let AI filter for me
+                </button>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-40 pb-stack-lg px-margin-desktop max-w-container-max mx-auto w-full flex flex-col md:flex-row gap-gutter">
+<aside class="w-full md:w-64 shrink-0 space-y-8 hidden md:block">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-on-surface">Filters</h2>
+<button class="text-label-md font-label-md text-primary hover:underline">Clear all</button>
+</div>
+<div class="space-y-4 border-t border-outline-variant/30 pt-4">
+<h3 class="font-label-md text-label-md text-on-surface font-semibold">Brand</h3>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-primary/20 w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface">Sony</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-outline-variant text-primary focus:ring-primary/20 w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface">Bose</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-outline-variant text-primary focus:ring-primary/20 w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface">Sennheiser</span>
+</label>
+</div>
+</div>
+<div class="space-y-4 border-t border-outline-variant/30 pt-4">
+<h3 class="font-label-md text-label-md text-on-surface font-semibold">Price</h3>
+<div class="flex items-center gap-2">
+<input class="w-full rounded border-outline-variant bg-surface px-2 py-1 text-sm focus:ring-1 focus:ring-primary" placeholder="Min" type="text"/>
+<span class="text-on-surface-variant">-</span>
+<input class="w-full rounded border-outline-variant bg-surface px-2 py-1 text-sm focus:ring-1 focus:ring-primary" placeholder="Max" type="text"/>
+</div>
+</div>
+<div class="space-y-4 border-t border-outline-variant/30 pt-4">
+<h3 class="font-label-md text-label-md text-on-surface font-semibold">Rating</h3>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="border-outline-variant text-primary focus:ring-primary/20 w-4 h-4" name="rating" type="radio"/>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="ml-2 font-body-md text-body-md text-on-surface-variant">&amp; Up</span>
+</div>
+</label>
+</div>
+</div>
+<div class="space-y-4 border-t border-outline-variant/30 pt-4">
+<h3 class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-2">
+                    Storage <span class="material-symbols-outlined text-[16px] text-outline" title="On-board storage for independent playback">info</span>
+</h3>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1 rounded-full border border-outline-variant text-label-sm font-label-sm text-on-surface-variant hover:bg-surface-container-high transition-colors">None</button>
+<button class="px-3 py-1 rounded-full border border-primary bg-primary/10 text-label-sm font-label-sm text-primary transition-colors">4GB</button>
+<button class="px-3 py-1 rounded-full border border-outline-variant text-label-sm font-label-sm text-on-surface-variant hover:bg-surface-container-high transition-colors">8GB+</button>
+</div>
+</div>
+</aside>
+<section class="flex-grow flex flex-col">
+<div class="flex justify-between items-end mb-stack-md">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-1">Bluetooth Headphones</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Showing 24 intelligent matches</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface-variant">Sort by:</span>
+<select class="border-none bg-surface-container-low rounded-lg font-label-md text-label-md text-on-surface py-2 pl-3 pr-8 focus:ring-0 cursor-pointer">
+<option>AI Recommended</option>
+<option>Price: Low to High</option>
+<option>Top Rated</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<div class="group bg-surface-container-lowest rounded-xl border border-outline-variant/30 hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-all duration-300 relative overflow-hidden flex flex-col h-full cursor-pointer">
+<div class="absolute top-3 right-3 z-10 ai-gradient-bg text-on-primary font-label-sm text-label-sm px-2 py-1 rounded-lg flex items-center gap-1 ai-glow">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+                        98% Match
+                    </div>
+<div class="h-48 w-full bg-surface-container-low relative overflow-hidden p-4 flex items-center justify-center">
+<img class="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500" data-alt="A sleek pair of modern over-ear wireless headphones in matte black, photographed against a pure white minimalist studio background. Soft, diffused lighting highlights the premium metallic accents and plush leather earcups. The composition is clean, bright, and highly professional, evoking a sense of advanced technology and high-end audio quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiLEHl1oz-6g5cty6FViBGeEuZhXAFjIvES1-SmzaYY1xXnzI_97cZF3VieTBOlez-9J3ahsfnQVMmY0cjLRFvpjZXsSu79O-DO6xQDkYJ1Gux4RJGCzwz8GDBoKyR9yd6rXTOOtg5xak6ukYLx4CT-_PQ7tEPuC_cIwHDYJsd8oDTl-Y2dm87VyMXyVC436t72SQA-dmzvhfgV2egyJzOJM6knCzrgk32YvxrE0PLHg1hI5fXlP29"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">Aura-Sonic Pro</h3>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Active Noise Cancelling, 40hr Battery, Multi-point connection.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-on-surface">$299</span>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md ml-1">4.9</span>
+</div>
+</div>
+</div>
+</div>
+<div class="group bg-surface-container-lowest rounded-xl border border-outline-variant/30 hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-all duration-300 relative overflow-hidden flex flex-col h-full cursor-pointer">
+<div class="h-48 w-full bg-surface-container-low relative overflow-hidden p-4 flex items-center justify-center">
+<img class="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500" data-alt="Minimalist silver true wireless earbuds resting gracefully beside their compact charging case on a soft gray surface. Bright, high-key lighting creates subtle, soft shadows. The overall aesthetic is highly technical yet elegant, perfectly suited for a premium modern e-commerce platform focusing on precision and clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_ahm0YSLZgtQzwM4k79s-_ccSEmcSG03xYqTeJSLWOf2g5uvzOhVSDuA1RtyJXRAqZ6wcKiGD6cohbiYRPMcwECaM2ZbjjWvlh6YMngohTaVR_EcBsBMSUOKNI2JPi8mQHF6AHUDFyngkRYeJ2g16upRbH6FC21RxqUENRIv2HWst-Rmbk9GyDUTVu_Ag30BjJWnTVd9sNcIun35czglu5pYKm6f8EK5z46NXH8-CWn2g8eaGRXbF"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">Quantum Buds X</h3>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Spatial Audio, IPX7 Water Resistant, 8GB On-board Storage.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-on-surface">$179</span>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md ml-1">4.7</span>
+</div>
+</div>
+</div>
+</div>
+<div class="group bg-surface-container-lowest rounded-xl border border-outline-variant/30 hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-all duration-300 relative overflow-hidden flex flex-col h-full cursor-pointer">
+<div class="absolute top-3 right-3 z-10 bg-surface-container-high text-on-surface font-label-sm text-label-sm px-2 py-1 rounded-lg">
+                        Best Seller
+                    </div>
+<div class="h-48 w-full bg-surface-container-low relative overflow-hidden p-4 flex items-center justify-center">
+<img class="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500" data-alt="A striking profile view of midnight blue studio headphones designed for professional audio engineering. The setting is a bright, pristine white environment that emphasizes the structural integrity and sleek curves of the product. The lighting is crisp and precise, highlighting the tactile materials and high-quality build." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbMf6Hw8kgJDAzAe3clUWVGHMaCE65xUCqN3aSvCx5eeeZKM5QQ7SyWi8zEm9ubcWFTz-eSdbkZuroo6QYuzzv8yaaVY3DDZw84PEKn69NNsKfv3HgJhXBKNgH_vRNY7ZAJIiZTwje19oP95HJFkGMlQeN1HtVHJ07w8iQG2wyrXtb8ikKoT7iqV6YuczK2n-3LZ9IRU-HjXKgTxswer0ZJbHvFT30qVclsJ0zECF13CozHEDMyom3"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">Studio Master V2</h3>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Hi-Res Audio Certified, Memory Foam Pads, 60hr Battery.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-on-surface">$349</span>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md ml-1">4.9</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 flex justify-center">
+<button class="border border-outline-variant text-on-surface font-label-md text-label-md px-6 py-2 rounded-full hover:bg-surface-container-low transition-colors">
+                    Load More Results
+                </button>
+</div>
+</section>
+</main>
+<div class="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-3 group">
+<div class="bg-surface-container-lowest border border-outline-variant/20 shadow-[0_10px_30px_rgba(0,0,0,0.1)] rounded-2xl p-4 pr-12 relative opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 pointer-events-none group-hover:pointer-events-auto">
+<p class="font-body-md text-body-md text-on-surface">Too many options?<br/>Let me help!</p>
+<button class="absolute top-2 right-2 text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<button class="ai-gradient-bg w-14 h-14 rounded-full flex items-center justify-center text-on-primary ai-glow hover:scale-105 transition-transform active:scale-95 shadow-lg">
+<span class="material-symbols-outlined text-[28px]">smart_toy</span>
+</button>
+</div>
+<footer class="w-full mt-stack-lg border-t border-outline-variant bg-surface-container-highest flex flex-col md:flex-row justify-between items-center px-margin-desktop py-stack-md max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md text-primary mb-4 md:mb-0">
+            Cognitive Commerce
+        </div>
+<div class="flex items-center gap-6 mb-4 md:mb-0">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Help Center</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Contact Us</a>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant text-center md:text-right">
+            © 2024 Cognitive Commerce. Powered by Precision Intelligence.
+        </div>
+</footer>
+</body></html>

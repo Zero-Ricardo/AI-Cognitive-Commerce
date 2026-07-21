@@ -1,0 +1,108 @@
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: commerce_db
+      MYSQL_USER: commerce_app
+      MYSQL_PASSWORD: ${DB_PASSWORD:-commerce_password}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root_password}
+      TZ: Asia/Shanghai
+    ports:
+      - "${MYSQL_PORT:-3306}:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-ucommerce_app", "-p${DB_PASSWORD:-commerce_password}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+  redis:
+    image: redis:7.4-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.3
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: "false"
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+    ports:
+      - "${ELASTICSEARCH_PORT:-9200}:9200"
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fs http://localhost:9200/_cluster/health >/dev/null || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+    restart: unless-stopped
+
+  commerce-api:
+    build:
+      context: ./backend
+    environment:
+      DB_URL: jdbc:mysql://mysql:3306/commerce_db?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false
+      DB_USERNAME: commerce_app
+      DB_PASSWORD: ${DB_PASSWORD:-commerce_password}
+      APP_ADMIN_PASSWORD: ${APP_ADMIN_PASSWORD:-Admin@123456}
+      SECURE_COOKIE: "false"
+      ALLOWED_ORIGINS: http://localhost:3000,http://127.0.0.1:3000,http://localhost:3001,http://127.0.0.1:3001,http://localhost:5173,http://127.0.0.1:5173,http://localhost:5174,http://127.0.0.1:5174
+      STORAGE_PATH: /app/data/uploads
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_HOT_PRODUCTS_ENABLED: "true"
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+      ELASTICSEARCH_INDEX_NAME: products_search_v2
+      SEARCH_ES_ENABLED: "true"
+      SEARCH_MYSQL_FALLBACK_ENABLED: "true"
+      BROWSING_HISTORY_ENABLED: "true"
+    ports:
+      - "8080:8080"
+    volumes:
+      - upload-data:/app/data/uploads
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+    restart: unless-stopped
+
+  mall-web:
+    build:
+      context: ./frontend
+      dockerfile: apps/mall-web/Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - commerce-api
+    restart: unless-stopped
+
+  admin-web:
+    build:
+      context: ./frontend
+      dockerfile: apps/admin-web/Dockerfile
+    ports:
+      - "3001:80"
+    depends_on:
+      - commerce-api
+    restart: unless-stopped
+
+volumes:
+  mysql-data:
+  redis-data:
+  elasticsearch-data:
+  upload-data:
