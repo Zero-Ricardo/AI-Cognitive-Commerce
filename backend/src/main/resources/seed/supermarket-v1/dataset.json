@@ -1,0 +1,1226 @@
+{
+  "manifest": {
+    "id": "supermarket-v1",
+    "version": "1.0.0",
+    "locale": "zh-CN",
+    "currency": "CNY",
+    "description": "综合超市第一阶段初始化测试数据；人物与地址均为虚构，图片来自 Wikimedia Commons 开放授权摄影资源。"
+  },
+  "categories": [
+    {
+      "code": "fresh",
+      "parentCode": null,
+      "name": "生鲜果蔬",
+      "level": 1,
+      "sortOrder": 10,
+      "status": "ENABLED"
+    },
+    {
+      "code": "fresh-fruit",
+      "parentCode": "fresh",
+      "name": "新鲜水果",
+      "level": 2,
+      "sortOrder": 10,
+      "status": "ENABLED"
+    },
+    {
+      "code": "fresh-vegetable",
+      "parentCode": "fresh",
+      "name": "时令蔬菜",
+      "level": 2,
+      "sortOrder": 20,
+      "status": "ENABLED"
+    },
+    {
+      "code": "meat-dairy",
+      "parentCode": null,
+      "name": "肉禽蛋奶",
+      "level": 1,
+      "sortOrder": 20,
+      "status": "ENABLED"
+    },
+    {
+      "code": "meat",
+      "parentCode": "meat-dairy",
+      "name": "肉禽水产",
+      "level": 2,
+      "sortOrder": 10,
+      "status": "ENABLED"
+    },
+    {
+      "code": "dairy-egg",
+      "parentCode": "meat-dairy",
+      "name": "蛋品乳品",
+      "level": 2,
+      "sortOrder": 20,
+      "status": "ENABLED"
+    },
+    {
+      "code": "grain-oil",
+      "parentCode": null,
+      "name": "粮油调味",
+      "level": 1,
+      "sortOrder": 30,
+      "status": "ENABLED"
+    },
+    {
+      "code": "grain",
+      "parentCode": "grain-oil",
+      "name": "米面杂粮",
+      "level": 2,
+      "sortOrder": 10,
+      "status": "ENABLED"
+    },
+    {
+      "code": "oil-seasoning",
+      "parentCode": "grain-oil",
+      "name": "食用油调味",
+      "level": 2,
+      "sortOrder": 20,
+      "status": "ENABLED"
+    },
+    {
+      "code": "snack",
+      "parentCode": null,
+      "name": "休闲零食",
+      "level": 1,
+      "sortOrder": 40,
+      "status": "ENABLED"
+    },
+    {
+      "code": "biscuit-puff",
+      "parentCode": "snack",
+      "name": "饼干膨化",
+      "level": 2,
+      "sortOrder": 10,
+      "status": "ENABLED"
+    },
+    {
+      "code": "nut-dried",
+      "parentCode": "snack",
+      "name": "坚果果干",
+      "level": 2,
+      "sortOrder": 20,
+      "status": "ENABLED"
+    },
+    {
+      "code": "beverage",
+      "parentCode": null,
+      "name": "酒水饮料",
+      "level": 1,
+      "sortOrder": 50,
+      "status": "ENABLED"
+    },
+    {
+      "code": "water-juice",
+      "parentCode": "beverage",
+      "name": "饮用水饮料",
+      "level": 2,
+      "sortOrder": 10,
+      "status": "ENABLED"
+    },
+    {
+      "code": "coffee-tea",
+      "parentCode": "beverage",
+      "name": "咖啡茶饮",
+      "level": 2,
+      "sortOrder": 20,
+      "status": "ENABLED"
+    },
+    {
+      "code": "cleaning",
+      "parentCode": null,
+      "name": "家庭清洁",
+      "level": 1,
+      "sortOrder": 60,
+      "status": "ENABLED"
+    },
+    {
+      "code": "laundry-clean",
+      "parentCode": "cleaning",
+      "name": "衣物家居清洁",
+      "level": 2,
+      "sortOrder": 10,
+      "status": "ENABLED"
+    },
+    {
+      "code": "paper-disposable",
+      "parentCode": "cleaning",
+      "name": "纸品一次性",
+      "level": 2,
+      "sortOrder": 20,
+      "status": "ENABLED"
+    },
+    {
+      "code": "personal",
+      "parentCode": null,
+      "name": "个护美妆",
+      "level": 1,
+      "sortOrder": 70,
+      "status": "ENABLED"
+    },
+    {
+      "code": "hair-body",
+      "parentCode": "personal",
+      "name": "洗发沐浴",
+      "level": 2,
+      "sortOrder": 10,
+      "status": "ENABLED"
+    },
+    {
+      "code": "oral-hand",
+      "parentCode": "personal",
+      "name": "口腔手部护理",
+      "level": 2,
+      "sortOrder": 20,
+      "status": "ENABLED"
+    },
+    {
+      "code": "home-kitchen",
+      "parentCode": null,
+      "name": "家居厨具",
+      "level": 1,
+      "sortOrder": 80,
+      "status": "ENABLED"
+    },
+    {
+      "code": "cookware",
+      "parentCode": "home-kitchen",
+      "name": "锅具水杯",
+      "level": 2,
+      "sortOrder": 10,
+      "status": "ENABLED"
+    },
+    {
+      "code": "storage",
+      "parentCode": "home-kitchen",
+      "name": "收纳整理",
+      "level": 2,
+      "sortOrder": 20,
+      "status": "ENABLED"
+    },
+    {
+      "code": "baby-pet",
+      "parentCode": null,
+      "name": "母婴宠物",
+      "level": 1,
+      "sortOrder": 90,
+      "status": "ENABLED"
+    },
+    {
+      "code": "baby",
+      "parentCode": "baby-pet",
+      "name": "婴童用品",
+      "level": 2,
+      "sortOrder": 10,
+      "status": "ENABLED"
+    },
+    {
+      "code": "pet",
+      "parentCode": "baby-pet",
+      "name": "宠物食品",
+      "level": 2,
+      "sortOrder": 20,
+      "status": "ENABLED"
+    },
+    {
+      "code": "electronics",
+      "parentCode": null,
+      "name": "家电数码",
+      "level": 1,
+      "sortOrder": 100,
+      "status": "ENABLED"
+    },
+    {
+      "code": "small-appliance",
+      "parentCode": "electronics",
+      "name": "生活小家电",
+      "level": 2,
+      "sortOrder": 10,
+      "status": "ENABLED"
+    },
+    {
+      "code": "digital-accessory",
+      "parentCode": "electronics",
+      "name": "数码配件",
+      "level": 2,
+      "sortOrder": 20,
+      "status": "ENABLED"
+    }
+  ],
+  "brands": [
+    {
+      "code": "freshjoy",
+      "name": "鲜享家",
+      "description": "产地直采生鲜品牌",
+      "sortOrder": 10,
+      "status": "ENABLED"
+    },
+    {
+      "code": "pasture",
+      "name": "原野牧场",
+      "description": "蛋奶与肉禽品牌",
+      "sortOrder": 20,
+      "status": "ENABLED"
+    },
+    {
+      "code": "grainfield",
+      "name": "谷禾良品",
+      "description": "米面粮油品牌",
+      "sortOrder": 30,
+      "status": "ENABLED"
+    },
+    {
+      "code": "kitchen",
+      "name": "百味厨房",
+      "description": "家庭调味品牌",
+      "sortOrder": 40,
+      "status": "ENABLED"
+    },
+    {
+      "code": "snacklab",
+      "name": "食光小铺",
+      "description": "休闲零食品牌",
+      "sortOrder": 50,
+      "status": "ENABLED"
+    },
+    {
+      "code": "nuts",
+      "name": "每日坚果社",
+      "description": "坚果果干品牌",
+      "sortOrder": 60,
+      "status": "ENABLED"
+    },
+    {
+      "code": "clear",
+      "name": "清泉里",
+      "description": "饮用水与果汁品牌",
+      "sortOrder": 70,
+      "status": "ENABLED"
+    },
+    {
+      "code": "roast",
+      "name": "慢焙时光",
+      "description": "咖啡茶饮品牌",
+      "sortOrder": 80,
+      "status": "ENABLED"
+    },
+    {
+      "code": "cleanhome",
+      "name": "净家",
+      "description": "家庭清洁品牌",
+      "sortOrder": 90,
+      "status": "ENABLED"
+    },
+    {
+      "code": "softpaper",
+      "name": "柔纸坊",
+      "description": "生活用纸品牌",
+      "sortOrder": 100,
+      "status": "ENABLED"
+    },
+    {
+      "code": "care",
+      "name": "本真护理",
+      "description": "个人护理品牌",
+      "sortOrder": 110,
+      "status": "ENABLED"
+    },
+    {
+      "code": "home",
+      "name": "简居",
+      "description": "家居厨具品牌",
+      "sortOrder": 120,
+      "status": "ENABLED"
+    },
+    {
+      "code": "babycare",
+      "name": "小芽成长",
+      "description": "婴童用品品牌",
+      "sortOrder": 130,
+      "status": "ENABLED"
+    },
+    {
+      "code": "petjoy",
+      "name": "毛球伙伴",
+      "description": "宠物食品品牌",
+      "sortOrder": 140,
+      "status": "ENABLED"
+    },
+    {
+      "code": "smartlife",
+      "name": "智生活",
+      "description": "生活家电与数码配件品牌",
+      "sortOrder": 150,
+      "status": "ENABLED"
+    }
+  ],
+  "users": [
+    {
+      "username": "admin",
+      "nickname": "平台管理员",
+      "phone": null,
+      "email": "admin@example.test",
+      "roles": [
+        "USER",
+        "ADMIN"
+      ]
+    },
+    {
+      "username": "demo",
+      "nickname": "演示用户",
+      "phone": "18800000001",
+      "email": "demo@example.test",
+      "roles": [
+        "USER"
+      ]
+    },
+    {
+      "username": "buyer01",
+      "nickname": "测试买家小林",
+      "phone": "18800000002",
+      "email": "buyer01@example.test",
+      "roles": [
+        "USER"
+      ]
+    },
+    {
+      "username": "buyer02",
+      "nickname": "测试买家小周",
+      "phone": "18800000003",
+      "email": "buyer02@example.test",
+      "roles": [
+        "USER"
+      ]
+    },
+    {
+      "username": "buyer03",
+      "nickname": "测试买家阿宁",
+      "phone": "18800000004",
+      "email": "buyer03@example.test",
+      "roles": [
+        "USER"
+      ]
+    }
+  ],
+  "addresses": [
+    {
+      "username": "demo",
+      "recipientName": "张测试",
+      "recipientPhone": "18800000001",
+      "province": "上海市",
+      "city": "上海市",
+      "district": "浦东新区",
+      "detailAddress": "张江路测试园区1号楼101室",
+      "postalCode": "200120",
+      "defaultAddress": true,
+      "label": "家"
+    },
+    {
+      "username": "demo",
+      "recipientName": "张测试",
+      "recipientPhone": "18800000001",
+      "province": "浙江省",
+      "city": "杭州市",
+      "district": "余杭区",
+      "detailAddress": "文一西路测试公寓2幢202室",
+      "postalCode": "311100",
+      "defaultAddress": false,
+      "label": "公司"
+    },
+    {
+      "username": "buyer01",
+      "recipientName": "林测试",
+      "recipientPhone": "18800000002",
+      "province": "广东省",
+      "city": "深圳市",
+      "district": "南山区",
+      "detailAddress": "科技园测试路8号3栋301室",
+      "postalCode": "518000",
+      "defaultAddress": true,
+      "label": "家"
+    },
+    {
+      "username": "buyer01",
+      "recipientName": "林测试",
+      "recipientPhone": "18800000002",
+      "province": "广东省",
+      "city": "广州市",
+      "district": "天河区",
+      "detailAddress": "体育西测试街16号",
+      "postalCode": "510000",
+      "defaultAddress": false,
+      "label": "父母家"
+    },
+    {
+      "username": "buyer02",
+      "recipientName": "周测试",
+      "recipientPhone": "18800000003",
+      "province": "北京市",
+      "city": "北京市",
+      "district": "朝阳区",
+      "detailAddress": "望京测试社区5号楼502室",
+      "postalCode": "100102",
+      "defaultAddress": true,
+      "label": "家"
+    },
+    {
+      "username": "buyer02",
+      "recipientName": "周测试",
+      "recipientPhone": "18800000003",
+      "province": "四川省",
+      "city": "成都市",
+      "district": "高新区",
+      "detailAddress": "天府测试大道66号A座",
+      "postalCode": "610041",
+      "defaultAddress": false,
+      "label": "公司"
+    },
+    {
+      "username": "buyer03",
+      "recipientName": "宁测试",
+      "recipientPhone": "18800000004",
+      "province": "湖北省",
+      "city": "武汉市",
+      "district": "洪山区",
+      "detailAddress": "光谷测试街18号6栋601室",
+      "postalCode": "430070",
+      "defaultAddress": true,
+      "label": "家"
+    },
+    {
+      "username": "buyer03",
+      "recipientName": "宁测试",
+      "recipientPhone": "18800000004",
+      "province": "江苏省",
+      "city": "南京市",
+      "district": "建邺区",
+      "detailAddress": "江东测试路99号",
+      "postalCode": "210019",
+      "defaultAddress": false,
+      "label": "亲友家"
+    }
+  ],
+  "products": [
+    {
+      "productNo": "SM-FRU-001",
+      "name": "红富士苹果 6枚装",
+      "subtitle": "脆甜多汁，家庭分享装",
+      "categoryCode": "fresh-fruit",
+      "brandCode": "freshjoy",
+      "salePrice": "29.90",
+      "originalPrice": "35.90",
+      "stock": 180,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-fru-001.jpg",
+      "localImage": "images/sm-fru-001.jpg",
+      "imageUrls": [],
+      "description": "脆甜多汁，家庭分享装。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "苹果,红富士,新鲜水果",
+      "scenarios": "早餐,下午茶,家庭囤货",
+      "audiences": "家庭,上班族",
+      "specifications": {
+        "产地": "山东",
+        "净含量": "约1.2kg",
+        "储存": "冷藏"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 1
+    },
+    {
+      "productNo": "SM-FRU-002",
+      "name": "进口香蕉 1kg",
+      "subtitle": "自然成熟，软糯香甜",
+      "categoryCode": "fresh-fruit",
+      "brandCode": "freshjoy",
+      "salePrice": "15.80",
+      "originalPrice": "19.90",
+      "stock": 220,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-fru-002.jpg",
+      "localImage": "images/sm-fru-002.jpg",
+      "imageUrls": [],
+      "description": "自然成熟，软糯香甜。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "香蕉,进口水果,即食",
+      "scenarios": "早餐,健身补给",
+      "audiences": "儿童,健身人群",
+      "specifications": {
+        "产地": "菲律宾",
+        "净含量": "1kg",
+        "成熟度": "即食"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 2
+    },
+    {
+      "productNo": "SM-VEG-001",
+      "name": "番茄 500g",
+      "subtitle": "酸甜饱满，炒菜生食皆宜",
+      "categoryCode": "fresh-vegetable",
+      "brandCode": "freshjoy",
+      "salePrice": "8.90",
+      "originalPrice": "11.90",
+      "stock": 160,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-veg-001.jpg",
+      "localImage": "images/sm-veg-001.jpg",
+      "imageUrls": [],
+      "description": "酸甜饱满，炒菜生食皆宜。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "番茄,西红柿,蔬菜",
+      "scenarios": "家庭烹饪,沙拉",
+      "audiences": "家庭",
+      "specifications": {
+        "产地": "云南",
+        "净含量": "500g",
+        "等级": "一级"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 3
+    },
+    {
+      "productNo": "SM-EGG-001",
+      "name": "谷物鲜鸡蛋 20枚",
+      "subtitle": "蛋黄饱满，日期新鲜",
+      "categoryCode": "dairy-egg",
+      "brandCode": "pasture",
+      "salePrice": "26.90",
+      "originalPrice": "32.90",
+      "stock": 130,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-egg-001.jpg",
+      "localImage": "images/sm-egg-001.jpg",
+      "imageUrls": [],
+      "description": "蛋黄饱满，日期新鲜。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "鸡蛋,谷物蛋,蛋品",
+      "scenarios": "早餐,烘焙,家庭烹饪",
+      "audiences": "家庭",
+      "specifications": {
+        "枚数": "20枚",
+        "保质期": "30天",
+        "储存": "冷藏"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 4
+    },
+    {
+      "productNo": "SM-DAI-001",
+      "name": "纯牛奶 250ml×12盒",
+      "subtitle": "原生乳蛋白，常温整箱",
+      "categoryCode": "dairy-egg",
+      "brandCode": "pasture",
+      "salePrice": "49.90",
+      "originalPrice": "59.90",
+      "stock": 96,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-dai-001.jpg",
+      "localImage": "images/sm-dai-001.jpg",
+      "imageUrls": [],
+      "description": "原生乳蛋白，常温整箱。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "牛奶,纯牛奶,整箱",
+      "scenarios": "早餐,学生营养",
+      "audiences": "学生,家庭",
+      "specifications": {
+        "规格": "250ml×12",
+        "蛋白质": "3.2g/100ml",
+        "储存": "常温"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 5
+    },
+    {
+      "productNo": "SM-MEA-001",
+      "name": "冷鲜鸡胸肉 500g",
+      "subtitle": "低脂高蛋白，独立锁鲜",
+      "categoryCode": "meat",
+      "brandCode": "pasture",
+      "salePrice": "19.90",
+      "originalPrice": "25.90",
+      "stock": 85,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-mea-001.jpg",
+      "localImage": "images/sm-mea-001.jpg",
+      "imageUrls": [],
+      "description": "低脂高蛋白，独立锁鲜。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "鸡胸肉,冷鲜,高蛋白",
+      "scenarios": "健身餐,家庭烹饪",
+      "audiences": "健身人群,家庭",
+      "specifications": {
+        "净含量": "500g",
+        "加工": "去皮",
+        "储存": "0-4℃"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 6
+    },
+    {
+      "productNo": "SM-GRA-001",
+      "name": "东北长粒香米 5kg",
+      "subtitle": "当季新米，米香自然",
+      "categoryCode": "grain",
+      "brandCode": "grainfield",
+      "salePrice": "42.90",
+      "originalPrice": "52.90",
+      "stock": 150,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-gra-001.jpg",
+      "localImage": "images/sm-gra-001.jpg",
+      "imageUrls": [],
+      "description": "当季新米，米香自然。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "大米,东北米,长粒香",
+      "scenarios": "家庭主食,囤货",
+      "audiences": "家庭",
+      "specifications": {
+        "产地": "黑龙江",
+        "净含量": "5kg",
+        "等级": "一级"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 7
+    },
+    {
+      "productNo": "SM-GRA-002",
+      "name": "高筋小麦粉 2.5kg",
+      "subtitle": "适合面包面条，筋度稳定",
+      "categoryCode": "grain",
+      "brandCode": "grainfield",
+      "salePrice": "21.90",
+      "originalPrice": "26.90",
+      "stock": 115,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-gra-002.jpg",
+      "localImage": "images/sm-gra-002.jpg",
+      "imageUrls": [],
+      "description": "适合面包面条，筋度稳定。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "面粉,高筋粉,小麦粉",
+      "scenarios": "烘焙,面食",
+      "audiences": "家庭,烘焙爱好者",
+      "specifications": {
+        "净含量": "2.5kg",
+        "类型": "高筋",
+        "保质期": "12个月"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 8
+    },
+    {
+      "productNo": "SM-OIL-001",
+      "name": "压榨花生油 700ml",
+      "subtitle": "物理压榨，浓郁花生香",
+      "categoryCode": "oil-seasoning",
+      "brandCode": "kitchen",
+      "salePrice": "32.90",
+      "originalPrice": "39.90",
+      "stock": 88,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-oil-001.jpg",
+      "localImage": "images/sm-oil-001.jpg",
+      "imageUrls": [],
+      "description": "物理压榨，浓郁花生香。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "花生油,食用油,压榨",
+      "scenarios": "中式烹饪,家庭囤货",
+      "audiences": "家庭",
+      "specifications": {
+        "净含量": "700ml",
+        "工艺": "物理压榨",
+        "等级": "一级"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 9
+    },
+    {
+      "productNo": "SM-SNA-001",
+      "name": "黄油曲奇饼干 400g",
+      "subtitle": "酥松奶香，独立小包装",
+      "categoryCode": "biscuit-puff",
+      "brandCode": "snacklab",
+      "salePrice": "22.90",
+      "originalPrice": "29.90",
+      "stock": 190,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-sna-001.jpg",
+      "localImage": "images/sm-sna-001.jpg",
+      "imageUrls": [],
+      "description": "酥松奶香，独立小包装。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "曲奇,饼干,黄油",
+      "scenarios": "下午茶,办公室分享",
+      "audiences": "家庭,上班族",
+      "specifications": {
+        "净含量": "400g",
+        "包装": "独立装",
+        "口味": "黄油"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 10
+    },
+    {
+      "productNo": "SM-SNA-002",
+      "name": "原味薄脆饼 120g",
+      "subtitle": "薄脆咸香，分享大包装",
+      "categoryCode": "biscuit-puff",
+      "brandCode": "snacklab",
+      "salePrice": "9.90",
+      "originalPrice": "12.90",
+      "stock": 260,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-sna-002.jpg",
+      "localImage": "images/sm-sna-002.jpg",
+      "imageUrls": [],
+      "description": "薄脆咸香，分享大包装。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "薄脆饼,饼干,原味",
+      "scenarios": "追剧,聚会",
+      "audiences": "年轻人",
+      "specifications": {
+        "净含量": "120g",
+        "口味": "原味",
+        "储存": "阴凉干燥"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 11
+    },
+    {
+      "productNo": "SM-NUT-001",
+      "name": "混合原味坚果 250g",
+      "subtitle": "多种坚果搭配，轻烘焙无额外加盐",
+      "categoryCode": "nut-dried",
+      "brandCode": "nuts",
+      "salePrice": "29.90",
+      "originalPrice": "36.90",
+      "stock": 135,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-nut-001.jpg",
+      "localImage": "images/sm-nut-001.jpg",
+      "imageUrls": [],
+      "description": "多种坚果搭配，轻烘焙无额外加盐。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "混合坚果,巴旦木,轻烘焙",
+      "scenarios": "办公室零食,能量补给",
+      "audiences": "上班族,健身人群",
+      "specifications": {
+        "净含量": "250g",
+        "配料": "巴旦木、核桃、花生等",
+        "工艺": "轻烘焙"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 12
+    },
+    {
+      "productNo": "SM-DRI-001",
+      "name": "天然矿泉水 330ml×12",
+      "subtitle": "清爽甘冽，便携整箱",
+      "categoryCode": "water-juice",
+      "brandCode": "clear",
+      "salePrice": "23.90",
+      "originalPrice": "29.90",
+      "stock": 300,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-dri-001.jpg",
+      "localImage": "images/sm-dri-001.jpg",
+      "imageUrls": [],
+      "description": "清爽甘冽，便携整箱。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "矿泉水,饮用水,整箱",
+      "scenarios": "家庭囤货,户外",
+      "audiences": "全人群",
+      "specifications": {
+        "规格": "330ml×12",
+        "水源": "天然水源",
+        "包装": "玻璃瓶"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 13
+    },
+    {
+      "productNo": "SM-DRI-002",
+      "name": "100%橙汁 1L",
+      "subtitle": "非浓缩还原，果香清新",
+      "categoryCode": "water-juice",
+      "brandCode": "clear",
+      "salePrice": "18.90",
+      "originalPrice": "22.90",
+      "stock": 105,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-dri-002.jpg",
+      "localImage": "images/sm-dri-002.jpg",
+      "imageUrls": [],
+      "description": "非浓缩还原，果香清新。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "橙汁,果汁,NFC",
+      "scenarios": "早餐,聚会",
+      "audiences": "家庭",
+      "specifications": {
+        "净含量": "1L",
+        "果汁含量": "100%",
+        "储存": "冷藏"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 14
+    },
+    {
+      "productNo": "SM-COF-001",
+      "name": "中度烘焙咖啡豆 500g",
+      "subtitle": "坚果焦糖风味，适合手冲",
+      "categoryCode": "coffee-tea",
+      "brandCode": "roast",
+      "salePrice": "68.00",
+      "originalPrice": "79.00",
+      "stock": 72,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-cof-001.jpg",
+      "localImage": "images/sm-cof-001.jpg",
+      "imageUrls": [],
+      "description": "坚果焦糖风味，适合手冲。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "咖啡豆,中度烘焙,手冲",
+      "scenarios": "居家咖啡,办公室",
+      "audiences": "咖啡爱好者",
+      "specifications": {
+        "净含量": "500g",
+        "烘焙度": "中度",
+        "产区": "云南"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 15
+    },
+    {
+      "productNo": "SM-CLE-001",
+      "name": "浓缩洗衣液 3L",
+      "subtitle": "低泡易漂，清新去渍",
+      "categoryCode": "laundry-clean",
+      "brandCode": "cleanhome",
+      "salePrice": "45.90",
+      "originalPrice": "55.90",
+      "stock": 140,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-cle-001.jpg",
+      "localImage": "images/sm-cle-001.jpg",
+      "imageUrls": [],
+      "description": "低泡易漂，清新去渍。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "洗衣液,浓缩,去渍",
+      "scenarios": "机洗,手洗",
+      "audiences": "家庭",
+      "specifications": {
+        "净含量": "3L",
+        "香型": "清新",
+        "适用": "机洗/手洗"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 16
+    },
+    {
+      "productNo": "SM-CLE-002",
+      "name": "厨房油污清洁剂 500ml",
+      "subtitle": "泡沫喷雾，快速瓦解油污",
+      "categoryCode": "laundry-clean",
+      "brandCode": "cleanhome",
+      "salePrice": "16.90",
+      "originalPrice": "21.90",
+      "stock": 170,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-cle-002.jpg",
+      "localImage": "images/sm-cle-002.jpg",
+      "imageUrls": [],
+      "description": "泡沫喷雾，快速瓦解油污。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "油污清洁剂,厨房清洁,喷雾",
+      "scenarios": "灶台,油烟机",
+      "audiences": "家庭",
+      "specifications": {
+        "净含量": "500ml",
+        "形态": "泡沫喷雾",
+        "适用": "厨房硬表面"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 17
+    },
+    {
+      "productNo": "SM-PAP-001",
+      "name": "原生木浆抽纸 24包",
+      "subtitle": "柔韧亲肤，家庭整箱",
+      "categoryCode": "paper-disposable",
+      "brandCode": "softpaper",
+      "salePrice": "39.90",
+      "originalPrice": "49.90",
+      "stock": 155,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-pap-001.jpg",
+      "localImage": "images/sm-pap-001.jpg",
+      "imageUrls": [],
+      "description": "柔韧亲肤，家庭整箱。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "抽纸,纸巾,整箱",
+      "scenarios": "客厅,餐桌,办公室",
+      "audiences": "家庭,办公",
+      "specifications": {
+        "规格": "3层×100抽×24包",
+        "原料": "原生木浆",
+        "香型": "无香"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 18
+    },
+    {
+      "productNo": "SM-HAI-001",
+      "name": "去屑洗发水 700ml",
+      "subtitle": "温和清洁，清爽头皮",
+      "categoryCode": "hair-body",
+      "brandCode": "care",
+      "salePrice": "39.90",
+      "originalPrice": "49.90",
+      "stock": 112,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-hai-001.jpg",
+      "localImage": "images/sm-hai-001.jpg",
+      "imageUrls": [],
+      "description": "温和清洁，清爽头皮。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "洗发水,去屑,清爽",
+      "scenarios": "日常洗护",
+      "audiences": "成人",
+      "specifications": {
+        "净含量": "700ml",
+        "功效": "去屑清洁",
+        "适用发质": "中性/油性"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 19
+    },
+    {
+      "productNo": "SM-BOD-001",
+      "name": "清爽沐浴露 500ml",
+      "subtitle": "细腻泡沫，洗后不紧绷",
+      "categoryCode": "hair-body",
+      "brandCode": "care",
+      "salePrice": "25.90",
+      "originalPrice": "32.90",
+      "stock": 125,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-bod-001.jpg",
+      "localImage": "images/sm-bod-001.jpg",
+      "imageUrls": [],
+      "description": "细腻泡沫，洗后不紧绷。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "沐浴露,清爽,保湿",
+      "scenarios": "日常沐浴",
+      "audiences": "成人",
+      "specifications": {
+        "净含量": "500ml",
+        "香型": "柚香",
+        "肤质": "通用"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 20
+    },
+    {
+      "productNo": "SM-ORA-001",
+      "name": "含氟清新牙膏 120g×2",
+      "subtitle": "清洁牙渍，长效清新",
+      "categoryCode": "oral-hand",
+      "brandCode": "care",
+      "salePrice": "19.90",
+      "originalPrice": "25.90",
+      "stock": 200,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-ora-001.jpg",
+      "localImage": "images/sm-ora-001.jpg",
+      "imageUrls": [],
+      "description": "清洁牙渍，长效清新。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "牙膏,含氟,口腔护理",
+      "scenarios": "早晚刷牙",
+      "audiences": "成人",
+      "specifications": {
+        "规格": "120g×2",
+        "含氟量": "0.14%",
+        "香型": "薄荷"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 21
+    },
+    {
+      "productNo": "SM-COO-001",
+      "name": "不粘锅具两件套",
+      "subtitle": "煎炒组合，少油易洁",
+      "categoryCode": "cookware",
+      "brandCode": "home",
+      "salePrice": "169.00",
+      "originalPrice": "219.00",
+      "stock": 64,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-coo-001.jpg",
+      "localImage": "images/sm-coo-001.jpg",
+      "imageUrls": [],
+      "description": "煎炒组合，少油易洁。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "煎锅,不粘锅,锅具套装",
+      "scenarios": "煎炒,家庭烹饪",
+      "audiences": "家庭",
+      "specifications": {
+        "件数": "2件",
+        "材质": "铝合金",
+        "适用炉灶": "燃气/电陶炉"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 22
+    },
+    {
+      "productNo": "SM-COO-002",
+      "name": "复古玻璃水杯 400ml",
+      "subtitle": "通透杯身，红白几何纹样",
+      "categoryCode": "cookware",
+      "brandCode": "home",
+      "salePrice": "24.90",
+      "originalPrice": "32.90",
+      "stock": 145,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-coo-002.jpg",
+      "localImage": "images/sm-coo-002.jpg",
+      "imageUrls": [],
+      "description": "通透杯身，红白几何纹样。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "玻璃杯,水杯,复古",
+      "scenarios": "居家,办公室",
+      "audiences": "学生,上班族",
+      "specifications": {
+        "容量": "400ml",
+        "材质": "玻璃",
+        "图案": "红白几何纹"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 23
+    },
+    {
+      "productNo": "SM-STO-001",
+      "name": "加深塑料收纳篮 30L",
+      "subtitle": "大开口设计，可分类叠放",
+      "categoryCode": "storage",
+      "brandCode": "home",
+      "salePrice": "39.90",
+      "originalPrice": "49.90",
+      "stock": 78,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-sto-001.jpg",
+      "localImage": "images/sm-sto-001.jpg",
+      "imageUrls": [],
+      "description": "大开口设计，可分类叠放。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "收纳篮,塑料,家居整理",
+      "scenarios": "衣柜,储物间",
+      "audiences": "家庭",
+      "specifications": {
+        "容量": "30L",
+        "材质": "PP",
+        "颜色": "橙色"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 24
+    },
+    {
+      "productNo": "SM-BAB-001",
+      "name": "婴儿纸尿片 M码 20片",
+      "subtitle": "柔软吸收，日常便携装",
+      "categoryCode": "baby",
+      "brandCode": "babycare",
+      "salePrice": "39.00",
+      "originalPrice": "49.00",
+      "stock": 92,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-bab-001.jpg",
+      "localImage": "images/sm-bab-001.jpg",
+      "imageUrls": [],
+      "description": "柔软吸收，日常便携装。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "纸尿片,婴儿,M码",
+      "scenarios": "婴儿日常护理",
+      "audiences": "6-11kg婴儿",
+      "specifications": {
+        "尺码": "M",
+        "片数": "20片",
+        "适用体重": "6-11kg"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 25
+    },
+    {
+      "productNo": "SM-BAB-002",
+      "name": "婴儿手口湿巾 80抽×5",
+      "subtitle": "无酒精无香精，柔软亲肤",
+      "categoryCode": "baby",
+      "brandCode": "babycare",
+      "salePrice": "29.90",
+      "originalPrice": "39.90",
+      "stock": 118,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-bab-002.jpg",
+      "localImage": "images/sm-bab-002.jpg",
+      "imageUrls": [],
+      "description": "无酒精无香精，柔软亲肤。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "婴儿湿巾,手口,无酒精",
+      "scenarios": "外出,喂养清洁",
+      "audiences": "婴幼儿",
+      "specifications": {
+        "规格": "80抽×5包",
+        "成分": "EDI纯水",
+        "香精": "无"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 26
+    },
+    {
+      "productNo": "SM-PET-001",
+      "name": "成猫鸡肉配方粮 2kg",
+      "subtitle": "均衡营养，添加牛磺酸",
+      "categoryCode": "pet",
+      "brandCode": "petjoy",
+      "salePrice": "69.00",
+      "originalPrice": "82.00",
+      "stock": 84,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-pet-001.jpg",
+      "localImage": "images/sm-pet-001.jpg",
+      "imageUrls": [],
+      "description": "均衡营养，添加牛磺酸。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "猫粮,成猫,鸡肉",
+      "scenarios": "成猫日常主粮",
+      "audiences": "1岁以上猫",
+      "specifications": {
+        "净含量": "2kg",
+        "适用阶段": "成猫",
+        "蛋白质": "≥30%"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 27
+    },
+    {
+      "productNo": "SM-APP-001",
+      "name": "自动断电电热水壶 1.7L",
+      "subtitle": "大容量烧水，沸腾自动断电",
+      "categoryCode": "small-appliance",
+      "brandCode": "smartlife",
+      "salePrice": "109.00",
+      "originalPrice": "139.00",
+      "stock": 56,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-app-001.jpg",
+      "localImage": "images/sm-app-001.jpg",
+      "imageUrls": [],
+      "description": "大容量烧水，沸腾自动断电。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "电热水壶,自动断电,小家电",
+      "scenarios": "居家,办公室",
+      "audiences": "家庭,上班族",
+      "specifications": {
+        "容量": "1.7L",
+        "功率": "1500W",
+        "保护": "沸腾自动断电"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 28
+    },
+    {
+      "productNo": "SM-DIG-001",
+      "name": "蓝牙头戴式耳机",
+      "subtitle": "舒适包耳，续航约40小时",
+      "categoryCode": "digital-accessory",
+      "brandCode": "smartlife",
+      "salePrice": "199.00",
+      "originalPrice": "249.00",
+      "stock": 73,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-dig-001.jpg",
+      "localImage": "images/sm-dig-001.jpg",
+      "imageUrls": [],
+      "description": "舒适包耳，续航约40小时。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "蓝牙耳机,头戴式,长续航",
+      "scenarios": "通勤,学习,音乐",
+      "audiences": "学生,上班族",
+      "specifications": {
+        "连接": "Bluetooth 5.3",
+        "续航": "40小时",
+        "充电口": "USB-C"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 29
+    },
+    {
+      "productNo": "SM-DIG-002",
+      "name": "双向快充移动电源 10000mAh",
+      "subtitle": "轻巧便携，双口输出",
+      "categoryCode": "digital-accessory",
+      "brandCode": "smartlife",
+      "salePrice": "99.00",
+      "originalPrice": "129.00",
+      "stock": 101,
+      "mainImageUrl": "/uploads/seed/supermarket-v1/sm-dig-002.jpg",
+      "localImage": "images/sm-dig-002.jpg",
+      "imageUrls": [],
+      "description": "轻巧便携，双口输出。商品图片为真实商品类别摄影，商品名称、品牌、价格及规格均为测试数据。",
+      "keywords": "移动电源,充电宝,快充",
+      "scenarios": "通勤,旅行",
+      "audiences": "手机用户",
+      "specifications": {
+        "容量": "10000mAh",
+        "输入": "USB-C",
+        "最大功率": "22.5W"
+      },
+      "status": "ON_SALE",
+      "publishedOffsetDays": 30
+    }
+  ]
+}

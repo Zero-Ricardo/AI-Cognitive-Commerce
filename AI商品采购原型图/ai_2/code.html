@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Product Search - Cognitive Commerce</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<!-- Tailwind CSS with Config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#adc6ff",
+                        "surface": "#f8f9ff",
+                        "tertiary-container": "#00855b",
+                        "on-secondary-container": "#fffbff",
+                        "on-secondary-fixed": "#23005c",
+                        "on-tertiary-container": "#f5fff6",
+                        "tertiary-fixed": "#6ffbbe",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-primary-container": "#fefcff",
+                        "tertiary": "#006947",
+                        "on-background": "#121c2a",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d0dbed",
+                        "secondary-fixed": "#e9ddff",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#424754",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#002113",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#d9e3f6",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "secondary-container": "#8455ef",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#eff4ff",
+                        "outline-variant": "#c2c6d6",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container-high": "#dee9fc",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f8f9ff",
+                        "primary": "#0058be",
+                        "inverse-surface": "#27313f",
+                        "primary-fixed": "#d8e2ff",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "inverse-primary": "#adc6ff",
+                        "surface-tint": "#005ac2",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "secondary": "#6b38d4",
+                        "outline": "#727785",
+                        "surface-container": "#e6eeff",
+                        "surface-variant": "#d9e3f6",
+                        "on-primary-fixed": "#001a42",
+                        "on-surface": "#121c2a",
+                        "primary-container": "#2170e4",
+                        "on-primary-fixed-variant": "#004395"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "unit": "4px",
+                        "stack-lg": "32px",
+                        "margin-desktop": "48px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md min-h-screen flex flex-col antialiased">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<!-- Brand -->
+<div class="font-display-lg text-display-lg font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-size: 32px;">psychology</span>
+                Cognitive Commerce
+            </div>
+<!-- Navigation Links -->
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 hover:bg-surface-container-low rounded-lg transition-all active:scale-95 duration-200 px-3 py-2" href="#">Shop</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low rounded-lg transition-all active:scale-95 duration-200 px-3 py-2" href="#">Deals</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low rounded-lg transition-all active:scale-95 duration-200 px-3 py-2" href="#">New Arrivals</a>
+</div>
+<!-- Trailing Icons -->
+<div class="flex items-center gap-4 text-primary">
+<button class="hover:bg-surface-container-low rounded-full p-2 transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<button class="hover:bg-surface-container-low rounded-full p-2 transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Layout (Split View) -->
+<main class="flex-1 pt-[88px] flex flex-col md:flex-row w-full max-w-container-max mx-auto h-[1024px]">
+<!-- Left Panel: Chat Interface (40%) -->
+<aside class="w-full md:w-[40%] h-full flex flex-col bg-surface-container-lowest border-r border-outline-variant shadow-[4px_0_24px_rgba(0,0,0,0.02)] z-10 relative">
+<!-- Chat Header -->
+<div class="p-gutter border-b border-outline-variant flex items-center gap-3 bg-surface/50 backdrop-blur-sm">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-[0_0_15px_rgba(132,85,239,0.3)]">
+<span class="material-symbols-outlined text-on-primary icon-fill">auto_awesome</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Shopper AI</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Intelligent Assistant</p>
+</div>
+</div>
+<!-- Chat History -->
+<div class="flex-1 overflow-y-auto p-gutter flex flex-col gap-6">
+<!-- User Message -->
+<div class="flex flex-col items-end">
+<div class="bg-inverse-surface text-inverse-on-surface px-4 py-3 rounded-2xl rounded-tr-sm max-w-[85%] shadow-sm">
+<p>I'm looking for some high-end headphones for my daily commute. My budget is around $500.</p>
+</div>
+</div>
+<!-- AI Message -->
+<div class="flex flex-col items-start gap-2">
+<div class="bg-secondary-fixed text-on-secondary-fixed px-4 py-3 rounded-2xl rounded-tl-sm max-w-[90%] shadow-sm border border-secondary-fixed-dim/30 relative">
+<div class="absolute -left-2 -top-2 w-4 h-4 bg-secondary rounded-full opacity-50 blur-sm"></div>
+<p>Great! For commuting, noise cancellation and comfort are usually top priorities. Since your budget allows for premium options, do you prefer <strong>over-ear</strong> headphones for maximum isolation, or <strong>earbuds</strong> for portability?</p>
+</div>
+<!-- AI Suggestion Chips -->
+<div class="flex flex-wrap gap-2 mt-2">
+<button class="px-4 py-2 rounded-full border border-outline-variant bg-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm text-on-surface">Over-ear, focus on ANC</button>
+<button class="px-4 py-2 rounded-full border border-outline-variant bg-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm text-on-surface">Earbuds, need them light</button>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex flex-col items-end">
+<div class="bg-inverse-surface text-inverse-on-surface px-4 py-3 rounded-2xl rounded-tr-sm max-w-[85%] shadow-sm">
+<p>Definitely over-ear. I need to block out train noise completely.</p>
+</div>
+</div>
+<!-- AI Message -->
+<div class="flex flex-col items-start gap-2">
+<div class="bg-secondary-fixed text-on-secondary-fixed px-4 py-3 rounded-2xl rounded-tl-sm max-w-[90%] shadow-sm border border-secondary-fixed-dim/30">
+<p>Understood. I've analyzed the market for premium over-ear headphones with the best Active Noise Cancellation (ANC) under $500. Here are your top personalized matches based on isolation performance and comfort.</p>
+</div>
+</div>
+</div>
+<!-- Chat Input -->
+<div class="p-gutter bg-surface-container-lowest border-t border-outline-variant">
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 pl-4 pr-12 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary shadow-[0_0_0_1px_transparent] focus:shadow-[0_0_15px_rgba(132,85,239,0.2)] transition-shadow placeholder:text-on-surface-variant/60" placeholder="Ask follow up questions..." type="text"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center text-on-primary shadow-md hover:shadow-lg transition-all">
+<span class="material-symbols-outlined icon-fill">send</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Right Panel: Product Recommendations (60%) -->
+<section class="w-full md:w-[60%] h-full overflow-y-auto p-gutter pb-[100px] bg-background">
+<!-- Context Header -->
+<div class="mb-stack-lg flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary icon-fill">memory</span>
+<h1 class="font-headline-lg text-headline-lg text-on-background">AI Curated Selection</h1>
+</div>
+<!-- Extracted Needs -->
+<div class="flex flex-wrap items-center gap-3 bg-surface-container-lowest p-4 rounded-xl border border-outline-variant shadow-sm">
+<span class="font-label-md text-label-md text-on-surface-variant mr-2">Extracted Needs:</span>
+<div class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">headphones</span> Over-Ear
+                    </div>
+<div class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">payments</span> &lt; $500
+                    </div>
+<div class="px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm flex items-center gap-1 shadow-[0_0_8px_rgba(132,85,239,0.2)] border border-secondary/20">
+<span class="material-symbols-outlined text-[16px] icon-fill">train</span> Max ANC (Commute)
+                    </div>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-gutter">
+<!-- Product Card 1 -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant p-4 flex flex-col hover:shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:-translate-y-1 transition-all duration-300 relative group">
+<div class="absolute top-0 right-0 bg-gradient-to-r from-primary to-secondary text-on-primary px-3 py-1.5 rounded-bl-xl rounded-tr-xl font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-[0_0_15px_rgba(132,85,239,0.4)] z-10">
+<span class="material-symbols-outlined text-[16px] icon-fill">stars</span> 98% Match
+                    </div>
+<div class="w-full h-48 bg-surface-variant rounded-xl mb-4 overflow-hidden relative">
+<div class="bg-cover bg-center w-full h-full mix-blend-multiply" data-alt="A sleek, modern over-ear noise-canceling headphone in matte black, resting on a minimalist white desk with soft, diffused light mode lighting. High-end product photography style, emphasizing premium materials and smooth curves. Subtle vibrant purple and blue ambient light reflects off the earcups, hinting at advanced AI audio technology." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB6ctWjaaZ5FUKkEpfkyQBijY4Fg6OQrpx2rfy87utHZyJoXgdW67ZCemeiYfO8-ZgGVM4QlVcb_SwYo51rdOaSaERqzzbOVNaro9TUvVUw8Iakt8gKUlUqqZhpiF4EiQZ6ZOB6UE1IYuMpQiVGC22XdZWBkSZ_T6K0qfGJPDrYIkhrNB5wvDPcrz1Lf6PD62T7dcbs0RdI3GzZVp93CxnKVumn3kJxgCyXcVn7XYYcWsw1BvK1odQS')"></div>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface line-clamp-1">SonicMaster Pro ANC</h3>
+<span class="font-headline-md text-headline-md text-primary">$349</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3 mt-2 mb-4 flex items-start gap-2 border border-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">auto_awesome</span>
+<p class="font-label-md text-label-md text-on-surface-variant"><strong>AI Insight:</strong> Offers the absolute highest decibel reduction for low-frequency train rumble in this price bracket.</p>
+</div>
+<div class="mt-auto pt-2 flex gap-3">
+<button class="flex-1 py-2.5 rounded-lg border-2 border-outline-variant text-on-surface font-label-md text-label-md hover:border-primary hover:text-primary transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add</span> Compare
+                        </button>
+<button class="flex-1 py-2.5 rounded-lg bg-inverse-surface text-inverse-on-surface font-label-md text-label-md hover:bg-on-surface transition-colors">
+                            View Details
+                        </button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant p-4 flex flex-col hover:shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:-translate-y-1 transition-all duration-300 relative group">
+<div class="absolute top-0 right-0 bg-gradient-to-r from-primary to-secondary text-on-primary px-3 py-1.5 rounded-bl-xl rounded-tr-xl font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-[0_0_15px_rgba(132,85,239,0.4)] z-10">
+<span class="material-symbols-outlined text-[16px] icon-fill">stars</span> 95% Match
+                    </div>
+<div class="w-full h-48 bg-surface-variant rounded-xl mb-4 overflow-hidden relative">
+<div class="bg-cover bg-center w-full h-full mix-blend-multiply" data-alt="A premium wireless over-ear headphone in a sophisticated silver finish, presented against a clean, light-mode background. The composition is highly professional, capturing the intricate details of the plush ear cushions and metallic headband. A soft, futuristic blue ambient glow highlights the technological sophistication of the noise-canceling hardware." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA14dg8YQS6SeSMbAZcBVXsObQ-xWQQ5_nhn89iurhH1WBggxqOp0fzPsNY9brbU9dcbulFGv4DAu4qZKNGpY5RK27fgo5lujIML9__McBBS4_2uMRuJy3vg2JpIho8O_dq3oxuoneNUGZiLzHduYVZy6fIx36UqLn01jk1HJlB39y3bElrQxc0CTso6UHhjnxFAmrhjeTJhpvHOmMLPGIyJCA-bILaPTiZxKc5x1mtxXSCKECJlFew')"></div>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface line-clamp-1">AuraSound Quiet Max</h3>
+<span class="font-headline-md text-headline-md text-primary">$399</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3 mt-2 mb-4 flex items-start gap-2 border border-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">auto_awesome</span>
+<p class="font-label-md text-label-md text-on-surface-variant"><strong>AI Insight:</strong> Best-in-class comfort for long commutes, though ANC is slightly less aggressive than the SonicMaster.</p>
+</div>
+<div class="mt-auto pt-2 flex gap-3">
+<button class="flex-1 py-2.5 rounded-lg border-2 border-primary bg-primary/5 text-primary font-label-md text-label-md transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">check</span> Added
+                        </button>
+<button class="flex-1 py-2.5 rounded-lg bg-inverse-surface text-inverse-on-surface font-label-md text-label-md hover:bg-on-surface transition-colors">
+                            View Details
+                        </button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant p-4 flex flex-col hover:shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:-translate-y-1 transition-all duration-300 relative group">
+<div class="absolute top-0 right-0 bg-surface-variant text-on-surface-variant px-3 py-1.5 rounded-bl-xl rounded-tr-xl font-label-sm text-label-sm font-bold flex items-center gap-1 z-10">
+                        88% Match
+                    </div>
+<div class="w-full h-48 bg-surface-variant rounded-xl mb-4 overflow-hidden relative">
+<div class="bg-cover bg-center w-full h-full mix-blend-multiply" data-alt="An elegant, minimalist over-ear headphone in a warm sand color, beautifully lit in a bright, airy studio setting. The high-key lighting creates a modern light-mode feel. The focus is on the textured fabric and seamless design, subtly enhanced by a faint, technological purple rim light indicating smart features." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBBNs71OhfIkqJ7Cn_52Y9aC8C27j7FYtKe6TSwGbXYsY1frAbJ0XALMk5xEgGM9FtAlnc3lvR5Nph6YWGPHw9kQ7LcwHbDjkJKkNhVX5XYv436OYDbSZVTGJmdgt0fm2gs-UWOkBQH9wsIeT_Zaa8jTOekoQJC6mUY8jjZIVYDvYW_VVgzWGifXFwsbIRllqEtLJFKcHeAGIeNOLXSMKNzmYAaH_tgDI2jzlAamna2hC4l6BQ-ZrZ')"></div>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface line-clamp-1">EchoSphere Studio 3</h3>
+<span class="font-headline-md text-headline-md text-primary">$450</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3 mt-2 mb-4 flex items-start gap-2 border border-surface-variant opacity-80">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px] mt-0.5">insights</span>
+<p class="font-label-md text-label-md text-on-surface-variant"><strong>AI Insight:</strong> Superior soundstage for music purists, but ANC struggles slightly with high-pitched train screeches.</p>
+</div>
+<div class="mt-auto pt-2 flex gap-3">
+<button class="flex-1 py-2.5 rounded-lg border-2 border-primary bg-primary/5 text-primary font-label-md text-label-md transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">check</span> Added
+                        </button>
+<button class="flex-1 py-2.5 rounded-lg bg-inverse-surface text-inverse-on-surface font-label-md text-label-md hover:bg-on-surface transition-colors">
+                            View Details
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Compare Bar (Fixed Bottom Overlay) -->
+<div class="fixed bottom-0 left-0 w-full z-40 p-6 pointer-events-none md:pl-[40%] flex justify-center">
+<div class="pointer-events-auto bg-surface/90 backdrop-blur-xl border border-outline-variant rounded-2xl shadow-[0_-10px_40px_rgba(0,0,0,0.1)] p-4 flex justify-between items-center w-full max-w-3xl gap-6">
+<div class="flex items-center gap-4 flex-1">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Comparing 2 items</span>
+<div class="flex gap-2">
+<!-- Compare Item 1 -->
+<div class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant rounded-lg p-1.5 pr-3 w-48">
+<div class="w-10 h-10 bg-surface-variant rounded flex-shrink-0 bg-cover bg-center" data-alt="Thumbnail macro shot of a silver over-ear headphone cup, highlighting the metallic texture and pristine light-mode lighting setup with a subtle blue tech tint." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuASC5pzDjsl296PomZrMjxIO4IGnpti4yueKCueoMqDkp6p7zzXhjxUeyG5ENQohT_z3Svdolrg2FZojEdRvROlE6-7T8v_68DTEPsUr0FoOopMXRrJwSixPPsdZkzjbZ7mlp6ZeZF_bW9uuzOn-EPlu1JvyT_pvyOyaeWBv9quTMB0yeH7pIBxIuXGScynWySYOyAW8JwSwjlECuhUh0grYJWFDle6aHQCIqKG1i0zKzjocGOEZfA8')"></div>
+<span class="font-label-sm text-label-sm text-on-surface truncate">AuraSound Quiet Max</span>
+<button class="ml-auto text-outline hover:text-error transition-colors"><span class="material-symbols-outlined text-[16px]">close</span></button>
+</div>
+<!-- Compare Item 2 -->
+<div class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant rounded-lg p-1.5 pr-3 w-48">
+<div class="w-10 h-10 bg-surface-variant rounded flex-shrink-0 bg-cover bg-center" data-alt="Thumbnail macro shot of a sand-colored over-ear headphone cup, showcasing the textured fabric material in a bright, modern studio light setting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCgl1npuPkOFaDPSkAlrNZMhN_0aEfGI_-rmAohLSkdqUmZYYegWiBfVIH5-E9a9ft3XDf-KAFN8YoVl9z36sNIx-u4idAIxvIssEyPNQ4jt4qMyqjvf_XM0VXH4fYttvwoIFcVY1-JWXkLdak-eSdS_eHBYZAAW-Nf2k1PiZF1E0-4C0mwjoRB-d_cdaQDIb1ww9HthSpLEPl3iziGm_U-yj8iakO53znlmdflKXBKdYDNwTu88InZ')"></div>
+<span class="font-label-sm text-label-sm text-on-surface truncate">EchoSphere Studio 3</span>
+<button class="ml-auto text-outline hover:text-error transition-colors"><span class="material-symbols-outlined text-[16px]">close</span></button>
+</div>
+</div>
+</div>
+</div>
+<button class="bg-gradient-to-r from-primary to-secondary text-on-primary px-8 py-3 rounded-xl font-headline-md text-headline-md shadow-[0_4px_15px_rgba(107,56,212,0.3)] hover:shadow-[0_6px_20px_rgba(107,56,212,0.5)] hover:-translate-y-0.5 transition-all flex items-center gap-2 flex-shrink-0">
+<span class="material-symbols-outlined icon-fill">compare_arrows</span>
+                Run AI Comparison
+            </button>
+</div>
+</div>
+</body></html>
